@@ -1,7 +1,7 @@
-package com.vladmihalcea.hibernate.type.basic;
+package com.vladmihalcea.hibernate.type.search;
 
-import com.vladmihalcea.hibernate.type.basic.internal.PostgreSQLTSVectorSqlTypeDescriptor;
-import com.vladmihalcea.hibernate.type.basic.internal.PostgreSQLTSVectorTypeDescriptor;
+import com.vladmihalcea.hibernate.type.search.internal.PostgreSQLTSVectorSqlTypeDescriptor;
+import com.vladmihalcea.hibernate.type.search.internal.PostgreSQLTSVectorTypeDescriptor;
 import org.hibernate.type.AbstractSingleColumnStandardBasicType;
 import org.hibernate.usertype.DynamicParameterizedType;
 
@@ -14,13 +14,13 @@ import java.util.Properties;
  * @author Philip Riecks
  */
 public class PostgreSQLTSVectorType
-        extends AbstractSingleColumnStandardBasicType<String> implements DynamicParameterizedType {
+        extends AbstractSingleColumnStandardBasicType<Object> implements DynamicParameterizedType {
 
     public static final PostgreSQLTSVectorType INSTANCE = new PostgreSQLTSVectorType();
 
 
     public PostgreSQLTSVectorType() {
-        super(PostgreSQLTSVectorSqlTypeDescriptor.INSTANCE,  new PostgreSQLTSVectorTypeDescriptor());
+        super(PostgreSQLTSVectorSqlTypeDescriptor.INSTANCE, new PostgreSQLTSVectorTypeDescriptor());
     }
 
     @Override
